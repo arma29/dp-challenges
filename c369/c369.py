@@ -16,6 +16,9 @@ def numberHex(number):
 def hexcolor(r,g,b):
     return "#"+ "".join([numberHex(x) for x in (r,g,b)])
 
+def hex_color(lst): 
+    return "#" + "".join(["0" + y if len(y) < 2 else y for y in [hex(x).replace("0x", "").upper() for x in lst]])
+
 #as string [0][1]
 def hexNumber(fstHex,sndHex):
     if(ord(fstHex) > 57):
@@ -27,31 +30,41 @@ def hexNumber(fstHex,sndHex):
 def tupleHex(str):
     return hexNumber(str[1],str[2]),hexNumber(str[3],str[4]),hexNumber(str[5],str[6])
 
-def blend(list):
-    sum1 = 0
-    sum2 = 0
-    sum3 = 0
-    for elem in list:
-        fst,snd,thd = tupleHex(elem)
-        sum1 += fst
-        sum2 += snd
-        sum3 += thd
-    return hexcolor(int(sum1/len(list)),
-    int(sum2/len(list)), int(sum3/len(list)))
 
-def hex_color(lst): 
-    return "#" + "".join(["0" + y if len(y) < 2 else y for y in [hex(x).replace("0x", "").upper() for x in lst]])
+'''
+Learning of today:
+entry: a = [(2,3),(4,5)]
+result = (6,8)
+
+possile:
+reduce(lambda x,y: (x[0]+y[0],x[1]+y[1],z[2]+z[2]), a)
+
+[sum(x) for x in zip(*a)] //compression
+zip(a) = [((2, 3),), ((4, 5),)]
+zip(*a) = [(2,4),(3,5)] -> operator * unzip de list 
+'''
+def blend(list):
+    temp = [tupleHex(x) for x in list]
+    fst,snd,thd = [int(round(sum(x)/len(list),0)) for x in zip(*temp)]
+    return hexcolor(fst,snd,thd)
+
+
 
 def main():
     print "Tests: " + '\n'
-    print hexcolor(255,99,71)
-    print hexcolor(184, 134, 11)
-    print hexcolor(189, 183, 107)
-    print hexcolor(224, 0, 205)
-    print hexNumber('E','0')
+    # print hexcolor(255,99,71)
+    # print hexcolor(184, 134, 11)
+    # print hexcolor(189, 183, 107)
+    # print hexcolor(224, 0, 205)
     print blend({"#000000", "#778899"})
-    print blend({"#E6E6FA", "#FF69B4", "#B0C4DE"})
-    
+    # print blend2({"#000000", "#778899"})
+    # print blend({"#E6E6FA", "#FF69B4", "#B0C4DE"})
+    #TODO: Differences between python2 round and python3 round. its the key.
+    print tupleHex("#000000"), tupleHex("#778899")
+    print " Aim", tupleHex("#3B444C")
+    print "Goal", tupleHex("#3C444C")
+
+   
 
 if __name__ == '__main__':
     main()
