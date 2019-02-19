@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - C375",
+            "request": "launch",
+            "mainClass": "C375"
+        }
+    ]
+}
