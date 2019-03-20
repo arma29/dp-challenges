@@ -4,3 +4,4 @@
 2. [[2018-11-26] Challenge #369 [Easy] Hex colors](https://www.reddit.com/r/dailyprogrammer/comments/a0lhxx/20181126_challenge_369_easy_hex_colors/)
 3. [[2019-02-13] Challenge #375 [Intermediate] A Card Flipping Game](https://www.reddit.com/r/dailyprogrammer/comments/aq6gfy/20190213_challenge_375_intermediate_a_card/)
 4. [[2019-01-14] Challenge #372 [Easy] Perfectly balanced](https://www.reddit.com/r/dailyprogrammer/comments/afxxca/20190114_challenge_372_easy_perfectly_balanced/)
+5. [[2019-03-13] Challenge #376 [Intermediate] The Revised Julian Calendar](https://www.reddit.com/r/dailyprogrammer/comments/b0nuoh/20190313_challenge_376_intermediate_the_revised/)
